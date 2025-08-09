@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Predictive Pulse – Predict Blood Pressure</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eaf2f8;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        .container {
+            max-width: 440px;
+            margin: 50px auto;
+            background: white;
+            padding: 32px 32px 22px 32px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(44,62,80,0.08);
+        }
+        .form-field {
+            margin-bottom: 18px;
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+        input[type="number"] {
+            padding: 9px 10px;
+            border-radius: 5px;
+            border: 1px solid #bbb;
+            font-size: 1rem;
+        }
+        button {
+            width: 100%;
+            margin-top: 8px;
+            padding: 11px;
+            background: #27bfc9;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            letter-spacing: 1px;
+        }
+        button:hover {
+            background: #21618c;
+        }
+        .result {
+            margin-top: 23px;
+            padding: 8px;
+            font-size: 17px;
+            font-weight: bold;
+            color: #c0392b;
+            text-align: center;
+            min-height: 30px;
+        }
+        .nav-links {
+            margin-top: 22px;
+            text-align: center;
+        }
+        .nav-links a {
+            display: inline-block;
+            background: #7f8c8d;
+            color: #fff;
+            text-decoration: none;
+            padding: 9px 18px;
+            border-radius: 4px;
+            margin: 0 10px;
+            font-size: 1em;
+            font-weight: bold;
+        }
+        .nav-links a:hover {
+            background: #606e73;
+        }
+    </style>
+</head>
+<body>
+    <h1>Predict Blood Pressure</h1>
+    <div class="container">
+        <div class="form-field">
+            <label for="Gender">Gender (0 = Female, 1 = Male):</label>
+            <input type="number" id="Gender" min="0" max="1" step="1" required />
+        </div>
+        <div class="form-field">
+            <label for="Age">Age:</label>
+            <input type="number" id="Age" min="0" required />
+        </div>
+        <div class="form-field">
+            <label for="Patient">Patient History (0 = No, 1 = Yes):</label>
+            <input type="number" id="Patient" min="0" max="1" step="1" required />
+        </div>
+        <div class="form-field">
+            <label for="Severity">Severity (1 = Mild, 2 = Moderate, 3 = Severe):</label>
+            <input type="number" id="Severity" min="1" max="3" step="1" required />
+        </div>
+        <div class="form-field">
+            <label for="BreathShortness">Breath Shortness (0 = No, 1 = Yes):</label>
+            <input type="number" id="BreathShortness" min="0" max="1" step="1" required />
+        </div>
+        <div class="form-field">
+            <label for="VisualChanges">Visual Changes (0 = No, 1 = Yes):</label>
+            <input type="number" id="VisualChanges" min="0" max="1" step="1" required />
+        </div>
+        <div class="form-field">
+            <label for="NoseBleeding">Nose Bleeding (0 = No, 1 = Yes):</label>
+            <input type="number" id="NoseBleeding" min="0" max="1" step="1" required />
+        </div>
+        <div class="form-field">
+            <label for="Whendiagnosed">When Diagnosed (years ago):</label>
+            <input type="number" id="Whendiagnosed" min="0" required />
+        </div>
+        <div class="form-field">
+            <label for="Systolic">Systolic (mm Hg):</label>
+            <input type="number" id="Systolic" min="80" max="250" required />
+        </div>
+        <div class="form-field">
+            <label for="Diastolic">Diastolic (mm Hg):</label>
+            <input type="number" id="Diastolic" min="50" max="150" required />
+        </div>
+        <div class="form-field">
+            <label for="ControlledDiet">Controlled Diet (0 = No, 1 = Yes):</label>
+            <input type="number" id="ControlledDiet" min="0" max="1" step="1" required />
+        </div>
+        <button onclick="sendPrediction()">Predict</button>
+        <div id="prediction-result" class="result"></div>
+        <div class="nav-links">
+            <a href="index.html">Go Home</a>
+            <a href="details.html">Model Details</a>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
